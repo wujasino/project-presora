@@ -1,0 +1,60 @@
+name: E2E Tests
+
+# Deliberately NOT wired to push/pull_request on main — this suite must
+# never gate a merge or a production deploy. Run it on demand (Actions tab
+# → "Run workflow") or let the nightly schedule catch drift; either way a
+# failure here is a signal to look into, never a blocker.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: '0 6 * * *'
+
+permissions:
+  contents: read
+
+jobs:
+  e2e:
+    timeout-minutes: 20
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1/2, 2/2]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      # --legacy-peer-deps to match how the committed package-lock.json was
+      # generated (see deploy.yml's install step) — plain `npm ci` resolves
+      # netlify-cli's own peer-dependency conflicts (@netlify/otel/@netlify/blobs
+      # vs @opentelemetry/api) differently than --legacy-peer-deps does, so it
+      # rejected the lock file as "out of sync" even though nothing was
+      # actually wrong with it.
+      - run: npm ci --legacy-peer-deps
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run E2E tests
+        run: npx playwright test --shard=${{ matrix.shard }}
+
+      - name: Upload test report
+        uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report-${{ strategy.job-index }}
+          path: playwright-report/
+          retention-days: 14
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: test-results-${{ strategy.job-index }}
+          path: test-results/
+          retention-days: 7
