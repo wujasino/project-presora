@@ -1,0 +1,135 @@
+[build]
+  command = "npm install --legacy-peer-deps && npm run build"
+  publish = "dist"
+  # Netlify's own build credits ran out — `ignore` makes Netlify skip every
+  # build it would otherwise trigger itself (deploy previews on PRs, branch
+  # deploys), regardless of what changed. Production still deploys via
+  # .github/workflows/deploy.yml, which builds on GitHub Actions and uploads
+  # with `netlify deploy --no-build` (see that workflow's own comment) — this
+  # `ignore` only stops Netlify's *own* git-triggered builds, not that path.
+  # Remove this line once Netlify's build quota/credits are available again.
+  ignore = "exit 0"
+
+[build.environment]
+  NPM_FLAGS = "--legacy-peer-deps"
+  NODE_VERSION = "22"
+
+[dev]
+  command = "npm run dev"
+  targetPort = 5173
+  port = 8888
+  publish = "dist"
+  framework = "#custom"
+  autoLaunch = false
+
+[functions]
+  node_bundler = "nft"
+
+# Re-scans due brand_monitors (per their frequency) and writes an in-app
+# notification when alert_metric crosses below alert_threshold. Runs hourly
+# so daily/weekly/monthly monitors each get checked close to when they're
+# actually due, not just once a day regardless of frequency.
+[functions."check-score-alerts"]
+  schedule = "@hourly"
+
+# Monthly financial/tax report (netlify/functions/billing-status.js) — a
+# month-to-date snapshot (this month's Stripe charges so far) sent on the
+# 15th, ahead of the 20th/25th tax deadlines mentioned in the report itself.
+[functions."billing-status"]
+  schedule = "0 9 15 * *" # CRON: Minuta(0) Godzina(9) DzieńMiesiąca(15) Miesiąc(*) DzieńTygodnia(*)
+
+# Reverts an admin-granted temporary plan (admin-grant-temp-access.js) once
+# its expiry passes. Grants are always whole-day windows, so hourly slack
+# past expiry is never user-visible.
+[functions."expire-temp-access"]
+  schedule = "@hourly"
+
+# ── Google OAuth proxy — ukrywa ID projektu Supabase ─────────────────────────
+[[redirects]]
+  from   = "/auth/callback"
+  to     = "https://wxwdymchrmhxeiccnzg.supabase.co/auth/v1/callback"
+  status = 200
+  force  = true
+
+# ── Public API (ApiDocs.tsx) — clean /api/v1/* paths over the actual
+#    Netlify Functions, so the documented base URL is real and stable even
+#    if the underlying function implementation moves. Must come before the
+#    SPA fallback below (redirects are first-match-wins).
+[[redirects]]
+  from   = "/api/v1/analyze"
+  to     = "/.netlify/functions/api-analyze"
+  status = 200
+  force  = true
+
+[[redirects]]
+  from   = "/api/v1/analyses"
+  to     = "/.netlify/functions/api-analyses"
+  status = 200
+  force  = true
+
+# ── SPA fallback — wszystkie trasy obsługuje React Router ────────────────────
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200
+
+# ── Security headers ──────────────────────────────────────────────────────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Prevent clickjacking
+    X-Frame-Options = "DENY"
+    # Prevent MIME-type sniffing
+    X-Content-Type-Options = "nosniff"
+    # Force HTTPS for 1 year, include subdomains
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    # Limit referrer info sent to third parties
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    # Disable browser features not needed by the app
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(self)"
+    # Content-Security-Policy — restrictive but functional
+    # script-src uses a hash for the one static inline script (theme-init in
+    # index.html) instead of blanket 'unsafe-inline', so an injected inline
+    # <script> from any other source won't execute even if some other
+    # vulnerability lets an attacker get markup onto the page.
+    # A second hash (sha256-mTJ4c...) allows an inline script Stripe.js
+    # itself injects into a same-origin `srcdoc` iframe it creates for
+    # fraud-prevention/Radar — that iframe has no origin of its own, so it
+    # inherits this page's CSP rather than js.stripe.com's, and without this
+    # hash Stripe silently failed to initialize (console: "Executing inline
+    # script violates ... script-src", pointing at about:srcdoc).
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'sha256-/RP1qcferOxndzGpz9w//9Ab354eLJK4IuW6K6irJtA=' 'sha256-mTJ4cJaTm2Gw95GeXEpZdvEEY9ybh6FZu1bwcNE7QlY=' https://js.stripe.com https://accounts.google.com https://apis.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://accounts.google.com https://api.fontshare.com; font-src 'self' https://fonts.gstatic.com https://cdn.fontshare.com; img-src 'self' data: https: blob:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.anthropic.com https://api.voyageai.com https://api.stripe.com https://api.mailchimp.com https://accounts.google.com; frame-src https://js.stripe.com https://hooks.stripe.com https://accounts.google.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none';"
+
+# JS/CSS chunks — content-hashed by Vite, safe to cache forever
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Static images + SVGs — cache 1 week, revalidate with ETag
+[[headers]]
+  for = "/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"
+
+# Webmanifest — short cache so PWA updates propagate
+[[headers]]
+  for = "/site.webmanifest"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+# HTML must never be cached — it points to hashed assets
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"

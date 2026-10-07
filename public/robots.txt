@@ -1,0 +1,163 @@
+User-agent: Googlebot
+Allow: /
+Disallow: /dashboard
+Disallow: /brand-visibility
+Disallow: /automations
+Disallow: /changelog
+Disallow: /profile
+Disallow: /settings
+Disallow: /reports
+Disallow: /developers
+Disallow: /reset-password
+Disallow: /auth/confirm
+Disallow: /onboarding
+
+User-agent: Bingbot
+Allow: /
+Disallow: /dashboard
+Disallow: /brand-visibility
+Disallow: /automations
+Disallow: /changelog
+Disallow: /profile
+Disallow: /settings
+Disallow: /reports
+Disallow: /developers
+Disallow: /reset-password
+Disallow: /auth/confirm
+Disallow: /onboarding
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+# AI crawlers — allow full indexing for GEO/AIO visibility, but keep
+# authenticated/gated app views and transactional flows out of scope
+User-agent: GPTBot
+Allow: /
+Disallow: /dashboard
+Disallow: /brand-visibility
+Disallow: /automations
+Disallow: /changelog
+Disallow: /profile
+Disallow: /settings
+Disallow: /reports
+Disallow: /developers
+Disallow: /reset-password
+Disallow: /auth/confirm
+Disallow: /onboarding
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /dashboard
+Disallow: /brand-visibility
+Disallow: /automations
+Disallow: /changelog
+Disallow: /profile
+Disallow: /settings
+Disallow: /reports
+Disallow: /developers
+Disallow: /reset-password
+Disallow: /auth/confirm
+Disallow: /onboarding
+
+User-agent: Claude-Web
+Allow: /
+Disallow: /dashboard
+Disallow: /brand-visibility
+Disallow: /automations
+Disallow: /changelog
+Disallow: /profile
+Disallow: /settings
+Disallow: /reports
+Disallow: /developers
+Disallow: /reset-password
+Disallow: /auth/confirm
+Disallow: /onboarding
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /dashboard
+Disallow: /brand-visibility
+Disallow: /automations
+Disallow: /changelog
+Disallow: /profile
+Disallow: /settings
+Disallow: /reports
+Disallow: /developers
+Disallow: /reset-password
+Disallow: /auth/confirm
+Disallow: /onboarding
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /dashboard
+Disallow: /brand-visibility
+Disallow: /automations
+Disallow: /changelog
+Disallow: /profile
+Disallow: /settings
+Disallow: /reports
+Disallow: /developers
+Disallow: /reset-password
+Disallow: /auth/confirm
+Disallow: /onboarding
+
+User-agent: YouBot
+Allow: /
+Disallow: /dashboard
+Disallow: /brand-visibility
+Disallow: /automations
+Disallow: /changelog
+Disallow: /profile
+Disallow: /settings
+Disallow: /reports
+Disallow: /developers
+Disallow: /reset-password
+Disallow: /auth/confirm
+Disallow: /onboarding
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /dashboard
+Disallow: /brand-visibility
+Disallow: /automations
+Disallow: /changelog
+Disallow: /profile
+Disallow: /settings
+Disallow: /reports
+Disallow: /developers
+Disallow: /reset-password
+Disallow: /auth/confirm
+Disallow: /onboarding
+
+User-agent: cohere-ai
+Allow: /
+Disallow: /dashboard
+Disallow: /brand-visibility
+Disallow: /automations
+Disallow: /changelog
+Disallow: /profile
+Disallow: /settings
+Disallow: /reports
+Disallow: /developers
+Disallow: /reset-password
+Disallow: /auth/confirm
+Disallow: /onboarding
+
+User-agent: *
+Allow: /
+Disallow: /dashboard
+Disallow: /brand-visibility
+Disallow: /automations
+Disallow: /changelog
+Disallow: /profile
+Disallow: /settings
+Disallow: /reports
+Disallow: /developers
+Disallow: /reset-password
+Disallow: /auth/confirm
+Disallow: /onboarding
+
+Sitemap: https://www.presora.app/sitemap.xml

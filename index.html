@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Dark variant by default (app is dark-first); useFaviconTheme swaps these
+         to the light set on the light-only landing page. -->
+    <link rel="icon" type="image/png" sizes="512x512" href="/presora-favicon-512-dark.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192-dark.png" />
+    <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64-dark.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32-dark.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16-dark.png" />
+    <link rel="icon" href="/favicon-dark.ico" sizes="32x32" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0F0F23" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#F5F5F7" media="(prefers-color-scheme: light)" />
+
+    <title>Why Competitors Get Recommended by AI | Presora</title>
+    <meta name="description"
+      content="Find out why competitors get recommended by ChatGPT, Claude and Gemini — and get a prioritized action plan to outrank them." />
+    <meta name="keywords" content="AI brand visibility, ChatGPT brand, AI brand monitoring, GPT-4 brand scanner, GEO, AIO, generative engine optimization, LLM brand scoring, Presora" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+    <meta name="author" content="Presora" />
+    <link rel="canonical" href="https://www.presora.app/" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Find Why Competitors Get Recommended by AI | Presora" />
+    <meta property="og:description"
+      content="Compare your brand with the competitors AI recommends, understand why they win, and get a prioritized plan to close the gap." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.presora.app/" />
+    <meta property="og:image" content="https://www.presora.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Presora — see how AI perceives your brand across ChatGPT, Claude and Gemini" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Presora" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Find Why Competitors Get Recommended by AI | Presora" />
+    <meta name="twitter:description"
+      content="Measure the gap, understand why competitors win, take action, and measure again." />
+    <meta name="twitter:image" content="https://www.presora.app/og-image.png" />
+
+    <!-- Performance: preconnect to critical origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://wxwdymchrmhxeiccnzg.supabase.co" />
+    <link rel="dns-prefetch" href="https://accounts.google.com" />
+
+    <!-- Fonts — Inter for body, Space Grotesk for display/headings, Michroma (geometric,
+         all-caps techno-sans) for the "presora" wordmark, Libre Baskerville for the "AI
+         presence" accent, Plus Jakarta Sans for the landing page body/headings.
+         display=swap prevents render blocking -->
+    <!-- Michroma removed — replaced by Space Grotesk for the wordmark (see
+         CLAUDE.md's Wordmark font note) and no longer referenced anywhere
+         in src/index.css, so it was dead weight on every page load. -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet" />
+
+    <!-- Theme init — runs before React to prevent flash of wrong theme -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('bb_theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var isDark = stored === 'dark' || (stored === 'system' || !stored) && prefersDark;
+          if (isDark) document.documentElement.classList.add('dark');
+        } catch (e) {}
+      })();
+    </script>
+
+    <!-- Structured data: Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Presora",
+      "url": "https://www.presora.app",
+      "logo": "https://www.presora.app/presora-mark.png",
+      "description": "Presora shows why competitors get recommended by AI, explains the signals behind the gap, and recommends prioritized actions to outrank them in generative search.",
+      "foundingDate": "2024",
+      "founder": {
+        "@type": "Person",
+        "name": "Patryk Rybacki"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "contact.presora@gmail.com",
+        "contactType": "customer support",
+        "availableLanguage": ["English", "Polish"]
+      },
+      "sameAs": [
+        "https://www.instagram.com/presora.app",
+        "https://www.tiktok.com/@presora.app"
+      ],
+      "knowsAbout": [
+        "AI brand visibility",
+        "Generative Engine Optimization",
+        "GEO",
+        "AIO",
+        "AI brand monitoring",
+        "ChatGPT brand analysis",
+        "LLM brand scoring"
+      ]
+    }
+    </script>
+
+    <!-- Structured data: WebSite with SearchAction -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Presora",
+      "url": "https://www.presora.app",
+      "description": "Competitive intelligence platform that explains why AI recommends competitors and what actions can close the gap.",
+      "inLanguage": "en",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.presora.app/dashboard?brand={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <!-- Structured data: SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Presora",
+      "url": "https://www.presora.app",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "Brand Monitoring, AI Visibility, GEO Tool",
+      "operatingSystem": "Web",
+      "description": "Presora compares brands and competitors across ChatGPT, Claude, Gemini, Perplexity, Mistral and Llama, explains why competitors get recommended, and turns the gap into a prioritized action plan.",
+      "inLanguage": "en",
+      "featureList": [
+        "AI brand visibility score",
+        "Multi-model analysis: GPT-4o, Claude, Gemini, Perplexity, Mistral, Llama",
+        "5-dimension brand scoring: authority, sentiment, accuracy, mentions, recency",
+        "Competitor comparison",
+        "Weekly automated monitoring",
+        "Real-time alerts on brand sentiment changes",
+        "REST API and webhooks",
+        "GEO optimization recommendations"
+      ],
+      "offers": [
+        { "@type": "Offer", "price": "0",     "priceCurrency": "USD", "name": "Free plan — 3 analyses per month" },
+        { "@type": "Offer", "price": "39",    "priceCurrency": "USD", "name": "Starter plan — 5 analyses/month, adds Claude + Gemini" },
+        { "@type": "Offer", "price": "59",    "priceCurrency": "USD", "name": "Solo plan — 15 analyses/month, brand knowledge + CSV export" },
+        { "@type": "Offer", "price": "99",    "priceCurrency": "USD", "name": "Business plan — all 6 models, competitor comparison, API" },
+        { "@type": "Offer", "price": "199",   "priceCurrency": "USD", "name": "Agency plan — $199/month, for agencies managing multiple client accounts" }
+      ]
+    }
+    </script>
+
+    <!-- Structured data: FAQPage — helps AI models learn Q&A about Presora -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Presora?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Presora is a competitive intelligence platform for generative AI. It shows which competitors ChatGPT, Claude, Gemini, Perplexity, Mistral and Llama recommend, explains the signals that put them ahead, and generates prioritized actions to close the gap."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are GEO and AIO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "GEO (Generative Engine Optimization) and AIO (AI Optimization) are new marketing disciplines responding to the fact that users increasingly ask ChatGPT, Claude and Gemini instead of typing queries into Google. AI models answer from their own knowledge — either your brand is mentioned, or it is invisible. Presora measures that visibility and shows what to improve."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which AI models does Presora check?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Presora checks brand visibility in: GPT-4o (OpenAI / ChatGPT), Claude 3.5 Sonnet (Anthropic), Gemini 1.5 Pro (Google), Perplexity AI, Mistral Large and Llama 3.1 (Meta). The Free plan uses GPT-4o, Starter and Solo add Claude and Gemini, Business unlocks all 6 models."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I improve my brand visibility in AI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "After each analysis Presora generates concrete recommendations: what content to add to your site, how to describe your brand so AI understands it better, and which phrases models most often use in your category. Key factors include structured data (schema.org), rich brand descriptions across the web, mentions in sources used to train models, and clear product category positioning."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does Presora cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Presora offers a Free plan (3 analyses per month, GPT-4o), Starter at $39/month (5 analyses, adds Claude and Gemini), Solo at $59/month (15 analyses, brand knowledge RAG, CSV export), Business at $99/month (all 6 models, competitor comparison, API and webhooks), and an Agency plan at $199/month for agencies managing multiple client accounts, with white-label PDF reports."
+          }
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+
+    <!-- An off-screen aria-hidden keyword block (and its own duplicate
+         heading) was removed from here on purpose — see CLAUDE.md's
+         "Hidden GEO keyword block" note for why it was a spam-policy risk
+         rather than a ranking boost, and where that content lives now. -->
+  </body>
+</html>

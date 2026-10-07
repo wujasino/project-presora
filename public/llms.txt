@@ -1,0 +1,30 @@
+# Presora
+
+> Presora is a competitive intelligence platform that shows why ChatGPT, Claude, Gemini, Perplexity, Mistral and Llama recommend competitors, then turns those gaps into prioritized actions to outrank them. Founded 2024. Contact: contact.presora@gmail.com.
+
+Presora runs a brand name through multiple large language models and scores the result across 5 dimensions:
+
+- **Authority** — how often models treat the brand as a trustworthy, citable reference.
+- **Sentiment** — whether models describe the brand positively, neutrally or negatively.
+- **Accuracy** — whether models state correct facts about the brand (products, category, founding) or hallucinate.
+- **Mentions** — how often the brand surfaces at all when models are asked about its category.
+- **Recency** — whether models treat the brand's information as current and up to date.
+
+A full scan takes about 15 seconds and returns an overall AI-visibility score (0–100), per-dimension breakdowns, and prioritised recommendations for the weakest signals.
+
+This category of work is sometimes called GEO (Generative Engine Optimization) or AIO (AI Optimization): as more users ask AI assistants directly instead of searching, a brand's visibility inside model responses matters as much as its search-engine ranking.
+
+## Product
+
+- [Homepage](https://www.presora.app/): overview, live demo scan, pricing.
+- [Pricing](https://www.presora.app/pricing): Free (3 analyses/month, GPT-4o), Starter ($39/mo, adds Claude + Gemini), Solo ($59/mo, brand knowledge RAG + CSV export), Business ($89.99/mo, all 6 models + competitor comparison + API), Agency (from $220/mo, custom volume).
+- [API docs](https://www.presora.app/docs/api): REST API and webhooks for programmatic access to brand scans.
+- [Changelog](https://www.presora.app/changelog): product updates.
+
+## Company
+
+- [About](https://www.presora.app/about): full company and product facts.
+- Founder: Patryk Rybacki.
+- Contact: contact.presora@gmail.com
+- [Terms of service](https://www.presora.app/regulamin)
+- [Privacy policy](https://www.presora.app/polityka-prywatnosci)
