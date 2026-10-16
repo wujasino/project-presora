@@ -2,6 +2,9 @@
 
 Presora pomaga firmom sprawdzać i poprawiać widoczność marki w odpowiedziach generowanych przez AI oraz w wynikach wyszukiwania.
 
+Animacja automatyzacji | Płatność 
+Link - https://drive.google.com/file/d/1JDcgQHjd1JVrTZpPQ-q4lNjHrodcqsSE/view?usp=sharing
+
 ## Szybki start
 
 Wymagane: **Node.js 22** i npm.
