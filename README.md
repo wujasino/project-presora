@@ -2,6 +2,22 @@
 
 Presora pomaga firmom sprawdzać i poprawiać widoczność marki w odpowiedziach generowanych przez AI oraz w wynikach wyszukiwania.
 
+## What it does
+
+## Tech stack
+
+| Layer | Technologies |
+|-------|--------------|
+| Frontend | React 18, TypeScript, Vite, Tailwind CSS, shadcn/ui (Radix), React Router, TanStack Query |
+| Visualisation | Recharts, three.js / react-force-graph-3d, Framer Motion |
+| Backend | Node.js on Netlify serverless functions (23 endpoints) |
+| Data & Auth | Supabase — PostgreSQL, pgvector, Auth, Row-Level Security, Storage |
+| AI | Anthropic Claude (analysis + tool-calling assistant), Voyage AI embeddings, ElevenLabs TTS |
+| Payments | Stripe — checkout, customer portal, webhook-driven plan upgrades |
+| Email | Resend (transactional), Mailchimp (newsletter) |
+| Testing | Vitest + Testing Library (unit), Playwright (E2E + API contract) |
+| Infra | Netlify CI/CD, custom domain & DNS, Google OAuth proxy redirect |
+
 ## Szybki start
 
 Wymagane: **Node.js 22** i npm.
