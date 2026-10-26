@@ -2,8 +2,6 @@
 
 Presora pomaga firmom sprawdzać i poprawiać widoczność marki w odpowiedziach generowanych przez AI oraz w wynikach wyszukiwania.
 
-## What it does
-
 ## Tech stack
 
 | Layer | Technologies |
