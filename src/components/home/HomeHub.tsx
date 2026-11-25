@@ -448,11 +448,11 @@ const HomeHub = () => {
         ) : !latest ? (
           <EmptyState onScan={runScan} onDemo={() => runScan('Nike')} />
         ) : (
-          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,2fr)_minmax(260px,1fr)] items-start gap-4 mb-10">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-10">
             {/* Score card — the reason people come back */}
             <motion.div
               initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-              className="min-w-0 rounded-2xl border border-border bg-card/60 p-6 flex flex-col"
+              className="lg:col-span-2 rounded-2xl border border-border bg-card/60 p-6 flex flex-col"
             >
               <div className="flex items-start justify-between mb-4">
                 <div>
@@ -485,7 +485,7 @@ const HomeHub = () => {
             {/* Per-model breakdown + upsell */}
             <motion.div
               initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 }}
-              className="min-w-0 rounded-2xl border border-border bg-card/60 p-6"
+              className="rounded-2xl border border-border bg-card/60 p-6"
             >
               <p className="text-xs text-muted-foreground uppercase tracking-wider mb-4">By AI model</p>
               <div className="space-y-2.5">
